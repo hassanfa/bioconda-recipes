@@ -10,15 +10,16 @@ source:
 
 build:
   number: 0
-  noarch: generic
-  python: {{ PYTHON }} -m pip install -vv -r requirements.txt .
+  noarch: python 
+  script: python -m pip install -vv -r requirements.txt .
+
 
 requirements:
   host:
-    - python >=3.6
+    - python ==3.6
     - pip
   run:
-    - python >=3.6
+    - python ==3.6
     - pygraphviz >=1.5
       #    - click>=7.1.2
       #    - colorclass>=2.2.0
