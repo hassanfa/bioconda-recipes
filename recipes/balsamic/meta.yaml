@@ -20,11 +20,31 @@ requirements:
   run:
     - python >=3.6
     - pygraphviz >=1.5
+    - click>=7.1.2
+    - colorclass>=2.2.0
+    - coloredlogs>=14.0
+    - cyvcf2<0.10.0
+    - graphviz>=0.14
+    - gsutil>=4.50
+    - jinja2>=2.11.2
+    - matplotlib>=3.3.0
+    - networkx>=2.4
+    - numpy>=1.18.4
+    - pandas>1.1.0
+    - psutil>=5.7.0
+    - pydantic>=1.5.1
+    - pygments>=2.6.1
+    - pyyaml>=5.3.1
+    - seaborn==0.10.1
+    - six>=1.12.0
+    - snakemake==5.13.0
 
 
 test:
-  imports:
-    - snakemake 
-    - BALSAMIC
   commands:
     - balsamic --help 
+
+about:
+  home: https://github.com/Clinical-Genomics/BALSAMIC 
+  license: MIT
+  summary: Bioinformatic analysis pipeline for somatic mutations using high-throughput sequencing data
