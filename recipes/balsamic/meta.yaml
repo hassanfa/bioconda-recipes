@@ -11,13 +11,14 @@ source:
 build:
   number: 0
   noarch: python 
-  script: python -m pip install -vv -r requirements.txt .
+  script: pip install -vv -r requirements.txt .
 
 
 requirements:
   host:
     - python ==3.6
     - pip
+    - click>=7.1.2
   run:
     - python ==3.6
     - pygraphviz >=1.5
