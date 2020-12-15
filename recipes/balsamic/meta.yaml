@@ -1,0 +1,30 @@
+{% set version = "6.0.2" %}
+
+package:
+  name: balsamic 
+  version: {{ version }}
+
+source:
+  url: https://github.com/Clinical-Genomics/BALSAMIC/archive/v{{ version }}.tar.gz
+  sha256: ecfce6adae85c468154735b841d55257e7d0bddb9c1fb4e3f98e3543a1f43dd1
+
+build:
+  number: 0
+  noarch: generic
+  python: {{ PYTHON }} -m pip install --no-deps -vv .
+
+requirements:
+  host:
+    - python >=3.6
+    - pip
+  run:
+    - python >=3.6
+    - pygraphviz >=1.5
+
+
+test:
+  imports:
+    - snakemake 
+    - BALSAMIC
+  commands:
+    - balsamic --help 
