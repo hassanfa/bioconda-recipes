@@ -11,14 +11,12 @@ source:
 build:
   noarch: python
   number: 0
-  script: "python -m pip install . --no-deps -vv"
+  script: "python -m pip install -vv ."
 
 requirements:
-  host:
-    - python ==3.6
-    - pip
   run:
     - python ==3.6
+    - pip
 
 test:
   imports:
