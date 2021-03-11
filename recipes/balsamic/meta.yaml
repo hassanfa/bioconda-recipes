@@ -1,50 +1,29 @@
-{% set version = "6.0.2" %}
+{% set version = "7.1.2" %}
 
 package:
-  name: balsamic 
+  name: balsamic
   version: {{ version }}
 
 source:
-  url: https://github.com/Clinical-Genomics/BALSAMIC/archive/v{{ version }}.tar.gz
-  sha256: ecfce6adae85c468154735b841d55257e7d0bddb9c1fb4e3f98e3543a1f43dd1
+  url: "https://github.com/Clinical-Genomics/BALSAMIC/archive/v{{ version }}.tar.gz"
+  sha256: 712f3047a15e21db673142285e57e1b7a18ec3871e9b50a1f4e751f3d5ba0c60
 
 build:
+  noarch: python
   number: 0
-  noarch: generic 
-  script: pip install -vv -r requirements.txt .
-
+  script: "python -m pip install . --no-deps -vv"
 
 requirements:
   host:
     - python ==3.6
     - pip
-    - click>=7.1.2
   run:
     - python ==3.6
-    - pygraphviz >=1.5
-      #    - click>=7.1.2
-      #    - colorclass>=2.2.0
-      #    - coloredlogs>=14.0
-      #    - cyvcf2<0.10.0
-      #    - graphviz>=0.14
-      #    - gsutil>=4.50
-      #    - jinja2>=2.11.2
-      #    - matplotlib>=3.3.0
-      #    - networkx>=2.4
-      #    - numpy>=1.18.4
-      #    - pandas>1.1.0
-      #    - psutil>=5.7.0
-      #    - pydantic>=1.5.1
-      #    - pygments>=2.6.1
-      #    - pyyaml>=5.3.1
-      #    - seaborn==0.10.1
-      #    - six>=1.12.0
-      #    - snakemake==5.13.0
-
 
 test:
-  commands:
-    - balsamic --help 
+  imports:
+    - snakemake
+    - BALSAMIC
 
 about:
   home: https://github.com/Clinical-Genomics/BALSAMIC 
